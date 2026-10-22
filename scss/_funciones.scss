@@ -1,0 +1,12 @@
+@use "sass:math";
+@use "variables" as *;
+
+// Pasa una medida de Figma en px a rem: rem(24px) → 1.5rem
+@function rem($px) {
+  @return math.div($px, $base-fuente) * 1rem;
+}
+
+// Espaciado en múltiplos de 8px, ya en rem: espacio(2) → 1rem
+@function espacio($factor) {
+  @return rem($base-espacio * $factor);
+}

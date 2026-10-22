@@ -1,0 +1,53 @@
+@use "variables" as *;
+
+/* Hoja alternativa: modo oscuro.
+   Sus reglas solo se aplican cuando el body tiene la clase .dark-mode (botón #btn-theme). */
+
+// Colores del mar de noche
+$noche-1: #123a52;
+$noche-2: #0c2b3e;
+$noche-3: #071c28;
+$noche-4: #02080b;
+
+body.dark-mode {
+  color: $blanco;
+  background-color: $noche-4;
+  background-image: linear-gradient(to bottom, $noche-1 0%, $noche-2 35%, $noche-3 70%, $noche-4 100%);
+
+  &::before {
+    opacity: 0.28;
+  }
+
+  .nav-aqua {
+    border-bottom-color: rgba($blanco, 0.12);
+
+    .logo,
+    .nav-link {
+      color: $blanco;
+    }
+
+    .nav-link:hover {
+      color: $superficie;
+    }
+  }
+
+  .navbar-toggler {
+    background-color: $superficie;
+  }
+
+  .btn-tema {
+    border-color: $superficie;
+    color: $superficie;
+
+    &:hover {
+      color: $texto;
+      background-color: $superficie;
+    }
+  }
+
+  .hero-etiqueta {
+    color: $blanco;
+    border-color: rgba($blanco, 0.4);
+    background-color: rgba($blanco, 0.08);
+  }
+}

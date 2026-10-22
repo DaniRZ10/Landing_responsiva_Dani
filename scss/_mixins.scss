@@ -1,0 +1,38 @@
+@use "variables" as *;
+@use "funciones" as *;
+
+// Media query mobile-first: los estilos de dentro se aplican desde ese ancho
+@mixin desde($ancho) {
+  @media (min-width: $ancho) {
+    @content;
+  }
+}
+
+// Botón relleno: el hover y el active se calculan oscureciendo el fondo
+@mixin boton($fondo, $texto: $blanco) {
+  color: $texto;
+  background-color: $fondo;
+
+  &:hover {
+    color: $texto;
+    background-color: darken($fondo, 5%);
+  }
+
+  &:active {
+    background-color: darken($fondo, 10%);
+  }
+}
+
+// Texto de las etiquetas en forma de píldora (hero y cards)
+@mixin etiqueta {
+  font-size: rem(11px);
+  line-height: 1.2;
+  letter-spacing: rem(0.5px);
+}
+
+// Imagen de fondo sin repetir (espuma, escamas y ancla)
+@mixin fondo-imagen($url, $tamano: cover) {
+  background-image: url($url);
+  background-size: $tamano;
+  background-repeat: no-repeat;
+}
